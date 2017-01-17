@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Zazen - Welcome</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides pager>
+    <ion-slide *ngFor="let slide of slides">
+      <ion-buttons end>
+        <button ion-button (click)="skipIntroPage();">Skip</button>
+      </ion-buttons>
+      <img *ngIf="slide.image" [src]="slide.image" class="slide-image"/>
+      <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+      <p [innerHTML]="slide.description"></p>
+    </ion-slide>
+    <ion-slide>
+      <h2 class="slide-title">Ready to Start?</h2>
+      <button ion-button (click)="goToSettingsPage();">
+        Continue
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

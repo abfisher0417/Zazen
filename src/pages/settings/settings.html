@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Zazen - Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list no-lines>
+        <form #settingsForm="ngForm">
+            <ion-item>
+                <ion-label style="color: #ffffff">Number of Minutes to Meditate</ion-label>
+                <ion-select [(ngModel)]="settings.timeToMeditate" name="timeToMeditate">
+                    <ion-option *ngFor="let minute of minutes">{{minute}}</ion-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item>
+                <ion-label style="color: #ffffff">Number of Full Breaths per Minute</ion-label>
+                <ion-select [(ngModel)]="settings.breathFrequency" name="breathFrequency">
+                    <ion-option>4</ion-option>
+                    <ion-option>5</ion-option>
+                    <ion-option>6</ion-option>
+                    <ion-option>7</ion-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Number of Seconds to Inhale Your Breath</ion-label>
+                <ion-range [(ngModel)]="settings.timeToInhale" name="timeToInhale" min="3" max="8" step="1" snaps="true" pin="true">
+                    <ion-label range-left>3 sec.</ion-label>
+                    <ion-label range-right>8 sec.</ion-label>
+                </ion-range>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Play Beginning and Ending Bell</ion-label>
+                <ion-toggle [(ngModel)]="settings.playBeginEndBell" name="playBeginEndBell"></ion-toggle>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Play Interval Bell</ion-label>
+                <ion-toggle [(ngModel)]="settings.playIntervalBell" name="playIntervalBell"></ion-toggle>
+            </ion-item>
+
+            <ion-item>
+                <ion-label style="color: #ffffff">Interval Time in Minutes</ion-label>
+                <ion-select [(ngModel)]="settings.intervalTime" name="intervalTime" disabled="{{!settings.playIntervalBell}}">
+                    <ion-option *ngFor="let minute of minutes">{{minute}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <button ion-button (click)="saveSettings(settingsForms)" type="submit">Start Meditating</button>
+        </form>
+    </ion-list>
+</ion-content>

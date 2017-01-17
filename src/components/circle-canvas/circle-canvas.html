@@ -1,0 +1,6 @@
+<svg [attr.width]="viewPortWidth" [attr.height]="viewPortHeight" class="circle-canvas">
+  <svg:circle [attr.cx]="circleStartX" [attr.cy]="circleStartY" [attr.r]="circleRadius" class="circle" />
+  <svg:circle [attr.cx]="outerCircleX" [attr.cy]="outerCircleY" [attr.r]="outerCircleRadius" [attr.class]="outerCircleClass" />
+  <text [attr.x]="viewPortWidth / 2" [attr.y]="circleStartY - circleRadius + 25" [attr.class]="inhaleTextClass">Inhale</text>
+  <text [attr.x]="viewPortWidth / 2" [attr.y]="circleStartY + circleRadius - 10" [attr.class]="exhaleTextClass">Exhale</text>
+</svg>

@@ -1,0 +1,40 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Zazen - Meditate</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-grid>
+      <ion-row>
+        <ion-col text-center style="font-size: 4em">
+          <count-down-timer [minutesRemaining]="settings.timeToMeditate" [interval]="settings.intervalTime" (started)="started($event)" (finished)="finished($event)" (intervalMet)="intervalMet($event)"></count-down-timer>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid>
+      <ion-row>
+        <ion-col text-center>
+          <circle-canvas [windowHeight]="windowHeight" [windowWidth]="windowWidth" [breathFrequency]="settings.breathFrequency" [inhaleTime]="settings.timeToInhale"></circle-canvas>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid>
+      <ion-row>
+        <ion-col text-center>
+            <button ion-button icon-only (click)="start()" *ngIf="!running">
+                <ion-icon name="md-play"></ion-icon>
+            </button>
+            <button ion-button icon-only (click)="pause()" *ngIf="running">
+                <ion-icon name="md-pause"></ion-icon>
+            </button>
+            <button ion-button icon-only (click)="doStopButton()">
+                <ion-icon name="md-square"></ion-icon>
+            </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content>

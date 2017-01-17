@@ -1,0 +1,26 @@
+circle-canvas {
+  .circle {
+    fill: none;
+    stroke: #686868;
+    stroke-width: 3;
+  }
+  .inhaleCircle {
+    fill: #686868;
+  }
+  .exhaleCircle {
+    fill: #b4b4b4;
+  }
+  .inhaleText {
+    font: bold 16px Helvetica, Arial, sans-serif, Verdana;
+    fill: #ffffff;
+    text-anchor: middle;
+  }
+  .exhaleText {
+    font: bold 16px Helvetica, Arial, sans-serif, Verdana;
+    fill: #ffffff;
+    text-anchor: middle;
+  }
+  .hidden {
+    display: none;
+  }
+}
