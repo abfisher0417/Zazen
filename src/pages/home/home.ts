@@ -101,11 +101,11 @@ export class HomePage {
 
   private dismissLoading() {
     this.loading.dismiss();
-    //if (this.settings.skipIntro) {
-    //  this.navCtrl.setRoot(SettingsPage, {settings: this.settings});
-    //} else {
+    if (this.settings.skipIntro) {
+      this.navCtrl.setRoot(SettingsPage, {settings: this.settings});
+    } else {
       this.navCtrl.setRoot(HelpPage, {settings: this.settings});
-    //}
+    }
   }
 
 }
